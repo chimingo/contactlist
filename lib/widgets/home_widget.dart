@@ -9,8 +9,18 @@ class HomeWidget extends StatefulWidget {
 }
 
 class _HomeWidgetState extends State<HomeWidget> {
+
+  // @override
+  // void initState() {
+  //   // TODO: implement initState
+  //   super.initState();
+  // }
+ // getContact()async => await context.read()
+
+  
   @override
   Widget build(BuildContext context) {
+
     return  SafeArea(
       child: Column(
         children: [
@@ -37,7 +47,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                 return ListTile(
                   onTap: () {
                     Navigator.push(context,CupertinoPageRoute(builder: (context){
-                      return ContactScreen();
+                      return const ContactScreen();
 
                     }));
                   },
