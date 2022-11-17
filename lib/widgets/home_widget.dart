@@ -44,35 +44,52 @@ class _HomeWidgetState extends State<HomeWidget> {
           ),
         const  SizedBox(height: 10.0),
 
-          // this will render a list of contacts
-          Expanded(
-            child: ListView.builder(
-              itemCount: contacts.length,
-              itemBuilder: (context,index){
-                return ListTile(
-                  onTap: () {
-                    Navigator.push(context,CupertinoPageRoute(builder: (context){
-                      return const ContactScreen();
+      Expanded(
+          child: ListView(
+            children:
+            contacts.map((eachModel){
+              return ListTile(
+                leading: Image.asset("assets/images/add-user.png",height: 45.0,),
+                    title:  Text(eachModel.name,style: const TextStyle(fontSize: 20.0),),
+                    subtitle: Text(eachModel.phoneNumber),
+                   trailing: const Icon(Icons.arrow_forward_ios_outlined),
 
-                    }));
-                  },
-                  contentPadding:const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 5.0),
-                  leading: Image.asset("assets/images/add-user.png",height: 45.0,),
-                  title:  Text(contacts[index].name,style: const TextStyle(fontSize: 20.0),),
-                  subtitle: Text(contacts[index].phoneNumber),
-                  trailing: const Icon(Icons.arrow_forward_ios_outlined),
-                  // DropdownButton(
-                  //   items:const [
-                  //     DropdownMenuItem(child: Text("View Contacts")),
-                      // DropdownMenuItem(child: Text("Add Fav")),
-                    // ], 
-                    // onChanged: (value){}
-                    );
-                // );
-              }
-              ),
+              );
+              
+            }
+            ).toList(),
+        
+            // this will render a list of contacts
+            // Expanded(
+            //   child: ListView.builder(
+            //     itemCount: contacts.length,
+            //     itemBuilder: (context,index){
+            //       return ListTile(
+            //         onTap: () {
+            //           Navigator.push(context,CupertinoPageRoute(builder: (context){
+            //             return const ContactScreen();
+        
+            //           }));
+            //         },
+            //         contentPadding:const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 5.0),
+            //         leading: Image.asset("assets/images/add-user.png",height: 45.0,),
+            //         title:  Text(contacts[index].name,style: const TextStyle(fontSize: 20.0),),
+            //         subtitle: Text(contacts[index].phoneNumber),
+            //         trailing: const Icon(Icons.arrow_forward_ios_outlined),
+            //         // DropdownButton(
+            //         //   items:const [
+            //         //     DropdownMenuItem(child: Text("View Contacts")),
+            //             // DropdownMenuItem(child: Text("Add Fav")),
+            //           // ], 
+            //           // onChanged: (value){}
+                      
+            //           );
+            //       // );
+            //     }
+            //     ),
+            // ),
           ),
-        ],
+        )],
         ),
         );
   }
