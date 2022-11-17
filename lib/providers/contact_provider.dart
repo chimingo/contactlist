@@ -43,11 +43,11 @@ class ContactProvider with ChangeNotifier{
            );
          
        }
-       print(apiContact);
+      //  print(apiContact);
 
 
       }else{
-        print("could not fetch data from the internet");
+        // print("could not fetch data from the internet");
       }
 
      }on SocketException{
